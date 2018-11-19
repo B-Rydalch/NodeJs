@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <% include ../partials/header.ejs %>
+  <base href="/">
+  <link type="text/css" rel="stylesheet" href="../stylesheets/postal.css"> 
+  <script type="text/javascript" src="/js/frontend.js"></script>
+</head>
+<body>
+    <% include ../partials/nav.ejs %>
+    <!-- Icon -->
+    <div class="postalIcon">
+      <img src="../images/logo.png" id="icon" alt="logo" />
+      <h1>Postal Services</h1>
+    </div>  
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Shipping Details</th>
+          <th scope="col">Weight</th>
+          <th scope="col">Packaging</th>
+          <th scope="col">Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= data.shipping %></td>
+          <td><%= data.weight %> oz</td>       
+          <td><%= data.package %></td>
+          <td><%= data.total %></td>
+        </tr>
+      </tbody>
+    </table>
+</body>
+</html>

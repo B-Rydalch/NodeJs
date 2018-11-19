@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Postal Pricing</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link type="text/css" rel="stylesheet" href="../stylesheets/postal.css">
+
+    <!--Bootstrap-->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="wrapper fadeInDown">
+      <div id="formContent">
+        <!-- Tabs Titles -->
+    
+        <!-- Icon -->
+        <div class="fadeIn first">
+          <img src="../images/logo.png" id="icon" alt="logo" />
+          <h1>Postal Services</h1>
+        </div>
+    
+        <!-- Postal type -->
+        <form action="/getRate" method="POST">
+            <select class="form-control" name="shipping">
+                <option>Default select</option>
+                <option value="priority-express">Priority Mail Express</option>
+                <option value="priority">Priority Mail</option>
+                <option value="first-class-mail">First-Class Mail</option>
+                <option value="first-class-package">First-Class Package Service—Retail</option>
+                <option value="retail">USPS Retail Ground</option>
+            </select>
+            <div class="form-row">
+                <div>
+                    <input name="weight" type="text" class="form-control" placeholder="Estimated Weight oz">
+                </div>
+                <div class="col" id="dropdown">
+                    <select class="form-control form-control-lg" id="container-type" name="package">
+                        <option>Default select</option>
+                        <option value="fr-envelope">Flat Rate Envelope</option>
+                        <option value="fr-padded">Padded Flat Rate Envelope</option>
+                        <option value="fr-legal">Legal Flat Rate Envelope</option>
+                        <option value="small-box">Small Flat Rate Box</option>
+                        <option value="medium-box">Medium Flat Rate Boxes</option>
+                        <option value="large-box">Large Flat Rate Boxes</option>
+                    </select>
+                </div>
+            </div>
+            <div class=blockbtn>
+                <button type="submit" class="btn btn-lg btn-block">Confirm Order</button>
+            </div>
+        </form>    
+      </div>
+    </div>
+</body>
+</html>
