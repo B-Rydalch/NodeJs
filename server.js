@@ -51,7 +51,7 @@ express()
     
     // async/await
     try {
-      const res = await pool.query(text, values);
+      const res = await pool.query(text, values)
       console.log(res.rows[0]);
     } catch(err) {
       console.log(err.stack);
