@@ -1,4 +1,4 @@
-DROP TABLE parents CASCADE;
+DROP TABLE parents  CASCADE;
 DROP TABLE children CASCADE; 
 DROP TABLE grounded CASCADE; 
 
