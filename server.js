@@ -25,6 +25,7 @@ express()
 
 
   /**************FUNCTIONS**************/
+  /*
   // (get) child info
   function getChild(req, res) {
     console.log ("getting child info");
@@ -220,3 +221,4 @@ express()
       console.log(err.stack);
     }
   }
+  */
