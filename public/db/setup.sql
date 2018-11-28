@@ -5,7 +5,7 @@ DROP TABLE grounded;
 CREATE TABLE parents
 (
     id SERIAL PRIMARY KEY
-    , name varchar(50) NOT NULL
+    , name varchar(250) NOT NULL
     , password VARCHAR(255)  NOT NULL
 );
 
