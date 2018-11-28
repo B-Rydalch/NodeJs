@@ -33,10 +33,6 @@ express()
     const text = 'SELECT * FROM children where $name = $child;';
     const values = ['child_name','Liam'];
 
-    res.json({
-      text
-    })
-
     // callback
     client.query(text, values, (err, res) => {
     if (err) {
@@ -55,7 +51,12 @@ express()
     
     // async/await
     try {
+      var query = pool.query(text, values)
       res = pool.query(text, values)
+
+      res.json({
+        query
+      })
       console.log(res.rows[0]);
       console.log("Success getting child info" + res);
     } catch(err) {
