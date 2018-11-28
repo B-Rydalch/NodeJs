@@ -28,10 +28,14 @@ express()
   // (get) child info
   function getChild(req, res) {
     console.log ("getting child info");
-    res.json({name: "Eli"});
+    // res.json({name: "Eli"});
 
     const text = 'SELECT * FROM children where $name = $child;';
-    const values = ['child_name','Eli'];
+    const values = ['child_name','Liam'];
+
+    res.json({
+      text
+    })
 
     // callback
     client.query(text, values, (err, res) => {
@@ -53,6 +57,7 @@ express()
     try {
       res = pool.query(text, values)
       console.log(res.rows[0]);
+      console.log("Success getting child info" + res);
     } catch(err) {
       console.log(err.stack);
     }
@@ -61,7 +66,7 @@ express()
   // (get) list of children
   function listChildren(req, res) {
     console.log ("getting child info");
-    res.json({name: "Eli"});
+    res.json({text: "getting child info"});
 
     const text = 'SELECT * FROM $TABLE;';
     const values = ['children'];
@@ -117,6 +122,7 @@ express()
     try {
       res = pool.query(text, values);
       console.log(res.rows[0]);
+      console.log("success");
     } catch(err) {
       console.log(err.stack);
     }
