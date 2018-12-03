@@ -1,0 +1,27 @@
+body {
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    background: #F6F8FA;
+    margin: 0;
+}
+
+.sidenav {
+    display: block;
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    top: 100;
+    left: 0;
+    background-color: #111;
+    /* overflow-x: hidden; */
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+}
