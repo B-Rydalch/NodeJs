@@ -30,7 +30,7 @@ express()
     console.log ("getting child info");
     // res.json({name: "Eli"});
 
-    const text = 'SELECT * FROM children where $name = $child;';
+    const text = 'SELECT * FROM children where $1 = $2;';
     const values = ['child_name','Liam'];
 
     // callback
@@ -69,7 +69,7 @@ express()
     console.log ("getting child info");
     res.json({text: "getting child info"});
 
-    const text = 'SELECT * FROM $TABLE;';
+    const text = 'SELECT * FROM $1;';
     const values = ['children'];
 
     // callback
@@ -100,7 +100,7 @@ express()
 
   // (post) insert child
   function addChild(req,res) {
-    const text = 'INSERT INTO children(name, age, num_grounded) VALUES($name, $age, $num);';
+    const text = 'INSERT INTO children(name, age, num_grounded) VALUES($1, $2, $3);';
     const values = ['baby', 0, 0];
 
     // callback
@@ -134,7 +134,7 @@ express()
     console.log ("insert grounding");
     res.json({name: "Eli"});
 
-    const text = 'INSERT INTO grounded(item, reason, amount, child_id, parent_id) VALUES($item, $reason,$duration, $child_id, $parent_id);';
+    const text = 'INSERT INTO grounded(item, reason, amount, child_id, parent_id) VALUES($1, $2, $3, $4, $5);';
     const values = ['toy1', 'talk back','5:00', 2, 1];
 
     // callback
@@ -167,7 +167,7 @@ express()
     console.log ("delete grounding");
     res.json({name: "Eli"});
 
-    const text = 'DELETE FROM grounded where child_id = $childID and grounded_id = $groundedID;';
+    const text = 'DELETE FROM grounded where child_id = $1 and grounded_id = $2;';
     const values = [2,1];
 
     // callback
@@ -200,7 +200,7 @@ express()
     console.log ("update grounding");
     res.json({name: 'Eli'});
 
-    const text = 'update grounded SET $countdown = $updatedTime  WHERE $child = $childID AND grounded.id = $id;';
+    const text = 'update grounded SET $1 = $2  WHERE $3 = $4 AND grounded.id = $5;';
     const values = ['5:00', '2:00', 2, 1];
 
     // callback
