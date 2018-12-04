@@ -26,6 +26,7 @@ var materialOptions = {
 
   function familyServices(req,res) {
     console.log("calling family Services");
+    query = "Select * from children";
     
     (req, res) => res.render('pages/grounding.ejs',{data:req.body})
   }
