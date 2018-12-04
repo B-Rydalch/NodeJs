@@ -22,7 +22,7 @@ express()
         //  (req, res) =>console.log(req.body),
         (req, res) => res.render('pages/postal.ejs', {data:req.body}))
       //   (req, res) => postOffice.postalServices(res,req))
-  // .get("/grounding",urlencodedParser,familyServices)
+  .get("/grounding",urlencodedParser,familyServices)
   // .get("/child", getChild) 
   // .get("/family",listFamily)
   // .get("/listChildren", listChildren)
