@@ -16,7 +16,7 @@ express()
         //  (req, res) =>console.log(req.body),
         (req, res) => res.render('pages/postal.ejs', {data:req.body}))
       //   (req, res) => postOffice.postalServices(res,req))
-  .get("/grounding", (req, res) => res.render('pages/grounding'),listChildren)
+  .get("/grounding", (req, res) => res.render('pages/grounding'),listFamily)
   .get("/child", getChild) 
   .get("/family",listFamily)
   .get("/listChildren", listChildren)
@@ -29,10 +29,13 @@ express()
 
   /**************FUNCTIONS**************/
   function listFamily(req, res, pool, callback) {
+    console.log("calling listFamily");
     let query = 'SELECT * from children;';
     // let params = [username];
+    console.log(query);
 
     pool.query(query, (err, results) => {
+      console.log("inside pool");
         if (err) {
             console.log(`ERR: ${err}`);
             callback(err);
