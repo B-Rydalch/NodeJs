@@ -1,3 +1,6 @@
+const google = require('google')
+
+
 // Google API 
 google.charts.load("current", {packages: ["line"]});
 // set a callback to run when the Google Visualization API is loaded.-->
