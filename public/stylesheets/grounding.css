@@ -25,3 +25,7 @@ body {
     color: #818181;
     display: block;
 }
+
+.card-container {
+    display: inline-block;
+}
