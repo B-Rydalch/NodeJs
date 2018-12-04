@@ -28,4 +28,7 @@ body {
 
 .card-container {
     display: inline-block;
+    padding-left: 500px;
+    padding-top: 400px; 
+    position: relative;
 }
