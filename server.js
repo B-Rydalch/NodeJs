@@ -3,8 +3,8 @@ const express = require('express')
 const path = require('path')
 const PORT = process.env.PORT || 5000
 // const postOffice = require('../CS313-Node/public/js/postal.js')
-const familyServices = module.require("../public/js/grounding.js")
-let urlencodedParser = bodyParser.urlencoded({extended:false});
+const familyServices = require("public/js")
+let urlencodedParser = bodyParser.urlencoded({extended:true});
 const { Pool } = require('pg');
 const dbConnectionString = process.env.DATABASE_URL || "heroku pg:psql postgresql-pointy-85036 --app immense-everglades-17729";
 
