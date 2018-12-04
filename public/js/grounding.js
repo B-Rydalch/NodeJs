@@ -26,6 +26,8 @@ var materialOptions = {
 
   function familyServices(req,res) {
     console.log("calling family Services");
+    
+    (req, res) => res.render('pages/grounding.ejs',{data:req.body})
   }
   
   module.exports = {
