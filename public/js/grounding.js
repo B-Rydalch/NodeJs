@@ -40,7 +40,7 @@
 
         console.log('Results: ', JSON.stringify(results.rows));
 
-        // callback(null, results.rows);
+        callback(null, results.rows);
     });
     
     (req, res) => res.render('pages/grounding.ejs',{data:req.body})
