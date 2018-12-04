@@ -2,6 +2,7 @@ const google = require('google')
 
 
 // Google API 
+setOnLoadCallback(<script src="https://apis.google.com/js/platform.js?onload=myFunc" async defer></script>)
 google.charts.load("current", {packages: ["line"]});
 // set a callback to run when the Google Visualization API is loaded.-->
 google.charts.setOnLoadCallback(drawChart);
