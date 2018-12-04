@@ -16,6 +16,7 @@ express()
         //  (req, res) =>console.log(req.body),
         (req, res) => res.render('pages/postal.ejs', {data:req.body}))
       //   (req, res) => postOffice.postalServices(res,req))
+  .get()
   .get("/child", getChild) 
   .get("/listChildren", listChildren)
   .post("/addChild", addChild)
