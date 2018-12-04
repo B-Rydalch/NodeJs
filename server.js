@@ -18,18 +18,17 @@ express()
       //   (req, res) => postOffice.postalServices(res,req))
   .get("/grounding", (req, res) => res.render('pages/grounding'),listChildren)
   .get("/child", getChild) 
+  .get("/family",listFamily)
   .get("/listChildren", listChildren)
   .post("/addChild", addChild)
   .post("/grounded", grounded)
+
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
 
 
   /**************FUNCTIONS**************/
   function listFamily(req, res, pool, callback) {
-    let username = req.body.user;
-    let password = req.body.pass;
-
     let query = 'SELECT * from children;';
     // let params = [username];
 
