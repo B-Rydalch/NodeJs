@@ -26,6 +26,30 @@ express()
 
 
   /**************FUNCTIONS**************/
+  function listFamily(req, res, pool, callback) {
+    let username = req.body.user;
+    let password = req.body.pass;
+
+    let query = 'SELECT * from children;';
+    // let params = [username];
+
+    pool.query(query, (err, results) => {
+        if (err) {
+            console.log(`ERR: ${err}`);
+            callback(err);
+        }
+
+        console.log('Results: ', JSON.stringify(results.rows));
+
+        callback(null, results.rows);
+    });
+}
+
+
+
+
+
+
   // (get) child info
   function getChild(req, res) {
     console.log ("getting child info");

@@ -17,7 +17,11 @@
   <!--My left nav bar -->
   <div id="mySidenav" class="sidenav">
       <h3>Children</h3>
-      
+      <ul>
+          <% results.forEach(function(r) { %>
+              <li><%= r.id %> - <%= r.name %></li>
+          <% }); %>
+      </ul>
       <a href="#">Child1</a>
       <a href="#">Child2</a>
       <a href="#">Child3</a>
