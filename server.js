@@ -3,8 +3,9 @@ const express = require('express')
 const path = require('path')
 const PORT = process.env.PORT || 5000
 // const postOffice = require('../CS313-Node/public/js/postal.js')
+const familyServices = require("public/js/grounding.js")
 let urlencodedParser = bodyParser.urlencoded({extended:false});
-const dbConnectionString = "heroku pg:psql postgresql-pointy-85036 --app immense-everglades-17729";
+const dbConnectionString = process.env.DATABASE_URL || "heroku pg:psql postgresql-pointy-85036 --app immense-everglades-17729";
 
 express()
   .use(express.static(__dirname + '/public'))
@@ -16,7 +17,7 @@ express()
         //  (req, res) =>console.log(req.body),
         (req, res) => res.render('pages/postal.ejs', {data:req.body}))
       //   (req, res) => postOffice.postalServices(res,req))
-  .get("/grounding", (req, res) => res.render('pages/grounding'),listFamily)
+  .get("/grounding",urlencodedParser, (req, res) => res.render('pages/grounding.ejs',{data:req.body}))
   .get("/child", getChild) 
   .get("/family",listFamily)
   .get("/listChildren", listChildren)

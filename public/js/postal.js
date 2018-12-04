@@ -37,7 +37,6 @@ function calculateRate(mailType, weight) {
 
 function postalServices (req, res) {
     console.log("calling postal Services")
-    console.log
     let mailType = req.body.shipping;
     let weight = req.body.weight;
     let total = calculateRate(mailType, weight);

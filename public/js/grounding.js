@@ -3,8 +3,6 @@ google.charts.load("current", {packages: ["line"]});
 // set a callback to run when the Google Visualization API is loaded.-->
 google.charts.setOnLoadCallback(drawChart);
 
-
-
 var materialOptions = {
     chart: {
       title: 'Average Temperatures and Daylight in Iceland Throughout the Year'
@@ -24,4 +22,12 @@ var materialOptions = {
       }
     }
   };
+
+
+  function familyServices(req,res) {
+    console.log("calling family Services");
+  }
   
+  module.exports = {
+    familyServices
+}
