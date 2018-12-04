@@ -68,7 +68,7 @@ express()
   // (get) list of children
   function listChildren(req, res) {
     console.log ("getting child info");
-    res.json({text: "getting child info"});
+    // res.json({text: "getting child info"});
 
     const text = 'SELECT * FROM $1;';
     const values = ['children'];
@@ -78,21 +78,21 @@ express()
       if (err) {
         console.log(err.stack);
       } else {
-        console.log(res.rows[0]);
+        console.log(res);
       }
     })
 
     // promise
     client.query(text, values)
       .then(res => {
-        console.log(res.rows[0]);
+        console.log(res);
       })
       .catch(e => console.error(e.stack))
     
     // async/await
     try {
       res = pool.query(text, values);
-      console.log(res.rows[0]);
+      console.log(res);
     } catch(err) {
       console.log(err.stack);
     }
