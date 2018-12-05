@@ -49,5 +49,5 @@
   }
   
   module.exports = {
-    familyServices
+    listChildren
 }
