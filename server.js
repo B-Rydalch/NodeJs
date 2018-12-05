@@ -18,6 +18,7 @@ express()
   .set('view engine', 'ejs')
   .get('/', (req, res) => res.render('pages/index'))
   .get('/home', (req, res) => res.render('pages/index'))
+  .then(console.log('lolololololol'), console.log)
   .post('/getRate', urlencodedParser,
         //  (req, res) =>console.log(req.body),
         (req, res) => res.render('pages/postal.ejs', {data:req.body}))
