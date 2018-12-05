@@ -21,11 +21,11 @@ express()
   .post('/getRate', urlencodedParser,
         //  (req, res) =>console.log(req.body),
         (req, res) => {
-          console.log(`lolololol: ${JSON.stringify(res)}`);
+          // console.log(`lolololol: ${JSON.stringify(res)}`);
           return res.render('pages/postal.ejs', {data:req.body})
         })
       //   (req, res) => postOffice.postalServices(res,req))
-  .get("/grounding",urlencodedParser,(req,res)=>familyServices.listChildren(req, res))
+  .get("/grounding",(req,res)=>familyServices.listChildren(req, res))
   // .get("/child", getChild) 
   // .get("/family",listFamily)
   // .get("/listChildren", listChildren)
