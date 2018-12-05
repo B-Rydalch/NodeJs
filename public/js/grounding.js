@@ -28,7 +28,7 @@
 //   };
 
 
-  function familyServices(req,res) {
+  function listChildren(req,res) {
     console.log("calling family Services");
     (req, res) => res.render('pages/grounding.ejs');
 
