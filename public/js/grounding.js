@@ -32,20 +32,20 @@
     console.log("calling family Services");
     res.render('pages/grounding.ejs');
 
-    // query = "Select * from children";
-    // pool.query(query, (err, results) => {
-    //   console.log("inside pool");
-    //     if (err) {
-    //         console.log(`ERR: ${err}`);
-    //         callback(err);
-    //     }
+    query = "Select * from children";
+    pool.query(query, (err, results) => {
+      console.log("inside pool");
+        if (err) {
+            console.log(`ERR: ${err}`);
+            callback(err);
+        }
 
-    //     console.log('Results: ', JSON.stringify(results.rows));
+        console.log('Results: ', JSON.stringify(results.rows));
 
-    //     callback(null, results.rows);
-    // });
+        callback(null, results.rows);
+    });
     
-    // (req, res) => res.render('pages/grounding.ejs',{data:req.body})
+    res.render('pages/grounding.ejs',{data:req.body})
   }
   
   module.exports = {
