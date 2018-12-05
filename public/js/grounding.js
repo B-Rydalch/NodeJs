@@ -30,20 +30,22 @@
 
   function familyServices(req,res) {
     console.log("calling family Services");
-    query = "Select * from children";
-    pool.query(query, (err, results) => {
-      console.log("inside pool");
-        if (err) {
-            console.log(`ERR: ${err}`);
-            callback(err);
-        }
+    (req, res) => res.render('pages/grounding.ejs');
 
-        console.log('Results: ', JSON.stringify(results.rows));
+    // query = "Select * from children";
+    // pool.query(query, (err, results) => {
+    //   console.log("inside pool");
+    //     if (err) {
+    //         console.log(`ERR: ${err}`);
+    //         callback(err);
+    //     }
 
-        callback(null, results.rows);
-    });
+    //     console.log('Results: ', JSON.stringify(results.rows));
+
+    //     callback(null, results.rows);
+    // });
     
-    (req, res) => res.render('pages/grounding.ejs',{data:req.body})
+    // (req, res) => res.render('pages/grounding.ejs',{data:req.body})
   }
   
   module.exports = {
