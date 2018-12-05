@@ -30,7 +30,7 @@
 
   function listChildren(req,res) {
     console.log("calling family Services");
-    (req, res) => res.render('pages/grounding.ejs');
+    res.render('pages/grounding.ejs');
 
     // query = "Select * from children";
     // pool.query(query, (err, results) => {
