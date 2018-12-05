@@ -18,10 +18,12 @@ express()
   .set('view engine', 'ejs')
   .get('/', (req, res) => res.render('pages/index'))
   .get('/home', (req, res) => res.render('pages/index'))
-  .then(console.log('lolololololol'), console.log)
   .post('/getRate', urlencodedParser,
         //  (req, res) =>console.log(req.body),
-        (req, res) => res.render('pages/postal.ejs', {data:req.body}))
+        (req, res) => {
+          console.log(`lolololol: ${JSON.stringify(res)}`);
+          return res.render('pages/postal.ejs', {data:req.body})
+        })
       //   (req, res) => postOffice.postalServices(res,req))
   .get("/grounding",urlencodedParser,(req,res)=>familyServices.listChildren(req, res))
   // .get("/child", getChild) 
