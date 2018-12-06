@@ -36,11 +36,10 @@
         console.log(err);
         res.json({success: false});
       }
-    
-
       res.render('pages/grounding.ejs',{children: data});
     });
   }
+
 
 function queryDB(req,res, pool, callback){
   query = "Select * from children";
@@ -57,6 +56,15 @@ function queryDB(req,res, pool, callback){
   });
 }
 
+function groundingInfo(req, res, pool) {
+  // return info about specific child => parsed from url req.params.name
+
+  //pass name to db function - inside db function, query info for that name
+  
+  
+  res.json({success: true, info: data});
+}
+
 function groundingCountDB(req,res, pool, callback){
   query = "Select * from grounded where child_id = children.id";
   pool.query(query, (err, results) => {
@@ -66,12 +74,18 @@ function groundingCountDB(req,res, pool, callback){
           callback(err);
       }
 
-      console.log('Results: ', JSON.stringify(results.rows));
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          console.log('Results: ', JSON.stringify(results.rows));
 
-      callback(null, results.rows);
+          callback(null, results.rows);
+        }
+      }
   });
 }
   
 module.exports = {
-  listChildren
+  listChildren,
+  groundingInfo
 }

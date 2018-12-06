@@ -18,7 +18,7 @@
   <div id="mySidenav" class="sidenav">
       <h3>Children</h3>
       <% children.forEach(function(value) { %>
-          <a href="#"><button><%= value.name %></button></a>
+          <a onclick="getGrounding('<%= value.name %>')"><%= value.name %></a>
         <% }) %>
     </div>
   <!--Google Chart Area-->
@@ -30,26 +30,43 @@
 
   <!--Card area-->
   <div class="card-container">
-    <div class="row">
-      <div class="class=col-xs-6" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">Grounded Count </h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-      </div>
-      <div class="class=col-xs-6 col-md-offset-2" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">Grounded Duration</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-      </div>
-      <div class="class=col-xs-6 col-md-offset-2" style="width: 18rem;">
+    <div class="row" id="groundingCards">
+      
+  </div>
+  <script>
+    function getGrounding(name) {
+      //AJAX call for name
+      $.get({
+        url: `/grounding/${name}`,
+        success: handleGrounding
+      })
+      
+    }
+
+    function handleGrounding(child) {
+      //append response to groundingCards using jquery
+      $('#groundingCards').append(`
+        <div class="class=col-xs-6" style="width: 18rem;">
           <div class="card-body">
-            <h5 class="card-title">Grounded Reason</h5>
+            <h5 class="card-title">${child.groundingCount}</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           </div>
         </div>
-    </div>
-  </div>
+        <div class="class=col-xs-6 col-md-offset-2" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Grounded Duration</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+        </div>
+        <div class="class=col-xs-6 col-md-offset-2" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Grounded Reason</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div>
+      </div>
+      `)
+    }
+  </script>
 </body>
 </html>
