@@ -28,25 +28,33 @@
 //   };
 
 
-  function listChildren(req,res) {
+  function listChildren(req,res, pool) {
     console.log("calling family Services");
-    res.render('pages/grounding.ejs');
+    // res.render('pages/grounding.ejs');
+    queryDB(req,res,pool, (err, data) => {
+      if (err) {
+        console.log(err);
+        res.json({success: false});
+      }
 
-    query = "Select * from children";
-    pool.query(query, (err, results) => {
-      console.log("inside pool");
-        if (err) {
-            console.log(`ERR: ${err}`);
-            callback(err);
-        }
-
-        console.log('Results: ', JSON.stringify(results.rows));
-
-        callback(null, results.rows);
+      res.render('pages/grounding.ejs',{data:req.body});
     });
-    
-    res.render('pages/grounding.ejs',{data:req.body})
   }
+
+function queryDB(req,res, pool, callback){
+  query = "Select * from children";
+  pool.query(query, (err, results) => {
+    console.log("inside pool");
+      if (err) {
+          console.log(`ERR: ${err}`);
+          callback(err);
+      }
+
+      console.log('Results: ', JSON.stringify(results.rows));
+
+      callback(null, results.rows);
+  });
+}
   
 module.exports = {
   listChildren
