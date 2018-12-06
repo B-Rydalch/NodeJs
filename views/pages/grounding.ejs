@@ -17,14 +17,10 @@
   <!--My left nav bar -->
   <div id="mySidenav" class="sidenav">
       <h3>Children</h3>
-      <ul>
         <% children.forEach(function(value) { %>
-          <li><%= value.name %> </li>
+          <a> <%= value.name %> </a>
         <% }) %>
-      </ul>
-      <a href="#">Child1</a>
-      <a href="#">Child2</a>
-      <a href="#">Child3</a>
+
     </div>
   <!--Google Chart Area-->
   <div id="chart_div"></div>
