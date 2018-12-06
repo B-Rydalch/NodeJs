@@ -48,6 +48,6 @@
     res.render('pages/grounding.ejs',{data:req.body})
   }
   
-  module.exports = {
-    listChildren
+module.exports = {
+  listChildren
 }
