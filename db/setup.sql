@@ -31,4 +31,10 @@ INSERT INTO parents (name,password) VALUES('dad','dad'), ('mom', 'mom');
 INSERT INTO children(name, age) 
 VALUES ('Eli', 5)
        , ('Liam', 4)
-       , ('Carter', 2) 
+       , ('Carter', 2);
+
+INSERT INTO grounded(item_name,  number_times_grounded,  duration,  children_id) 
+            VALUES ('XBOX', 3, NULL, 2);
+
+
+            

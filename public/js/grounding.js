@@ -36,6 +36,7 @@
         console.log(err);
         res.json({success: false});
       }
+    
 
       res.render('pages/grounding.ejs',{children: data});
     });
@@ -43,6 +44,21 @@
 
 function queryDB(req,res, pool, callback){
   query = "Select * from children";
+  pool.query(query, (err, results) => {
+    console.log("inside pool");
+      if (err) {
+          console.log(`ERR: ${err}`);
+          callback(err);
+      }
+
+      console.log('Results: ', JSON.stringify(results.rows));
+
+      callback(null, results.rows);
+  });
+}
+
+function groundingCountDB(req,res, pool, callback){
+  query = "Select * from grounded where child_id = children.id";
   pool.query(query, (err, results) => {
     console.log("inside pool");
       if (err) {
