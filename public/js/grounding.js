@@ -37,7 +37,7 @@
         res.json({success: false});
       }
 
-      res.render('pages/grounding.ejs',{data:req.body});
+      res.render('pages/grounding.ejs',{children: data});
     });
   }
 
