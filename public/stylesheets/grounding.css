@@ -23,14 +23,14 @@ body {
     color: cornsilk;
     padding-left: 20px; 
 }
-
+/* 
 .sidenav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
     color: whitesmoke;
     display: block;
-}
+} */
 
 .card-container {
     display: inline-block;
