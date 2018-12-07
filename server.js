@@ -5,7 +5,6 @@ const PORT = process.env.PORT || 5000
 // const postOffice = require('../CS313-Node/public/js/postal.js')
 const familyServices = require("./public/js/grounding");
 let urlencodedParser = bodyParser.urlencoded({extended:true});
-var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
 const { Pool } = require('pg');
 const dbConnectionString = process.env.DATABASE_URL || "heroku pg:psql postgresql-pointy-85036 --app immense-everglades-17729";
@@ -39,29 +38,6 @@ express()
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
   /**************FUNCTIONS**************/
-  function listFamily(req, res, pool, callback) {
-    console.log("calling listFamily");
-    let query = 'SELECT * from children;';
-    // let params = [username];
-    console.log(query);
-
-    pool.query(query, (err, results) => {
-      console.log("inside pool");
-        if (err) {
-            console.log(`ERR: ${err}`);
-            callback(err);
-        }
-
-        console.log('Results: ', JSON.stringify(results.rows));
-
-        callback(null, results.rows);
-    });
-}
-
-
-
-
-
 
   // (get) child info
   function getChild(req, res) {

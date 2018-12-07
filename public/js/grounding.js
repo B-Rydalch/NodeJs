@@ -58,30 +58,37 @@ function queryDB(req,res, pool, callback){
 
 function groundingInfo(req, res, pool) {
   // return info about specific child => parsed from url req.params.name
-
+  console.log("calling groundingInfo");
   //pass name to db function - inside db function, query info for that name
-  
+  groundingCountDB(req,res,pool, (err, data) => {
+    if (err) {
+      console.log(err);
+      res.json({success: false});
+    }
+    res.render('pages/grounding.ejs',{children: data});
+  });
+
   
   res.json({success: true, info: data});
 }
 
 function groundingCountDB(req,res, pool, callback){
-  query = "Select * from grounded where child_id = children.id";
-  pool.query(query, (err, results) => {
+  console.log('calling groundingCountDB');
+  query = "select c.id, c.name, g.children_id, g.number_times_grounded from children c, grounded g where c.id = g.children_id and c.name = '$1'";
+  params = [req.data]
+  console.log('query: '+ query);
+  console.log("params: " + params);
+  pool.query(query, params, (err, results) => {
     console.log("inside pool");
       if (err) {
           console.log(`ERR: ${err}`);
           callback(err);
       }
 
-      var xhttp = new XMLHttpRequest();
-      xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-          console.log('Results: ', JSON.stringify(results.rows));
+      console.log('Results: ', JSON.stringify(results.rows));
 
-          callback(null, results.rows);
-        }
-      }
+      callback(null, results.rows);
+
   });
 }
   

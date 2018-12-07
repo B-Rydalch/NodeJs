@@ -19,7 +19,7 @@
       <h3>Children</h3>
       <a ><% children.forEach(function(value) { %>
           <a onclick="getGrounding('<%= value.name %>')"><%= value.name %></a>
-        <% }) %> </a>
+        <% n }) %> </a>
     </div>
   <!--Google Chart Area-->
   <div id="chart_div"></div>
@@ -40,7 +40,6 @@
         url: `/grounding/${name}`,
         success: handleGrounding
       })
-      
     }
 
     function handleGrounding(child) {
