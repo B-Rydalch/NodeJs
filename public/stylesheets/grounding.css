@@ -16,21 +16,20 @@ body {
     background-color: #111;
     /* overflow-x: hidden; */
     padding-top: 60px;
-    text-decoration-color: antiquewhite
 }
 
 .sidenav h3 {
     color: cornsilk;
     padding-left: 20px; 
 }
-/* 
+
 .sidenav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
     color: whitesmoke;
     display: block;
-} */
+}
 
 .card-container {
     display: inline-block;
