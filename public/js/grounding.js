@@ -67,9 +67,6 @@ function groundingInfo(req, res, pool) {
     }
     res.render('pages/grounding.ejs',{children: data});
   });
-
-  
-  res.json({success: true, info: data});
 }
 
 function groundingCountDB(req,res, pool, callback){
