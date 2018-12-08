@@ -75,7 +75,7 @@ function groundingInfo(req, res, pool) {
 function groundingCountDB(req,res, pool, callback){
   console.log('calling groundingCountDB');
   query = "select c.id, c.name, g.children_id, g.number_times_grounded from children c, grounded g where c.id = g.children_id and c.name = '$1'";
-  params = [req.data]
+  params = [req]
   console.log('query: '+ query);
   console.log("params: " + params);
   pool.query(query, params, (err, results) => {
