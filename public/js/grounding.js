@@ -76,13 +76,12 @@ function groundingCountDB(req,res, pool, callback){
   console.log('query: '+ query);
   console.log("params: " + params);
   pool.query(query, params, (err, results) => {
-    console.log("inside pool");
       if (err) {
           console.log(`ERR: ${err}`);
           callback(err);
       }
 
-      console.log('Results: ', JSON.stringify(results.rows));
+      console.log('Results: ', results.rows);
 
       callback(null, results.rows);
 
