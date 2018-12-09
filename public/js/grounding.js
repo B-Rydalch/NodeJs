@@ -65,7 +65,11 @@ function groundingInfo(req, res, pool) {
       console.log(err);
       res.json({success: false});
     }
-    res.render('pages/grounding.ejs',{children: data});
+    res.json({
+      success: true,
+      data: data
+    });
+    // res.render('pages/grounding.ejs',{children: data});
   });
 }
 
