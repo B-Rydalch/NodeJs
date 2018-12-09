@@ -18,7 +18,7 @@
   <div id="mySidenav" class="sidenav">
       <h3>Children</h3>
       <a ><% children.forEach(function(value) { %>
-          <a><button onclick="getGrounding('<%= value.name %>')"><%= value.name %></button></a>
+          <a onclick="getGrounding('<%= value.name %>')"><%= value.name %></a>
         <% }) %> </a>
     </div>
   <!--Google Chart Area-->

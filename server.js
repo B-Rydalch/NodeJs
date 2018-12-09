@@ -13,6 +13,7 @@ const pool = new Pool({
   connectionString: dbConnectionString
 });
 
+
 express()
   .use(express.static(__dirname + '/public'))
   .set('views', path.join(__dirname, 'views'))
@@ -20,12 +21,9 @@ express()
   .get('/', (req, res) => res.render('pages/index'))
   .get('/home', (req, res) => res.render('pages/index'))
   .post('/getRate', urlencodedParser,
-        //  (req, res) =>console.log(req.body),
         (req, res) => {
-          // console.log(`lolololol: ${JSON.stringify(res)}`);
           return res.render('pages/postal.ejs', {data:req.body})
         })
-      //   (req, res) => postOffice.postalServices(res,req))
   .get("/grounding",(req,res)=>familyServices.listChildren(req, res, pool))
   .get("/grounding/:name", (req, res) => familyServices.groundingInfo(req, res, pool))
   .listen(PORT, () => console.log(`Listening on ${ PORT }`));
