@@ -3,7 +3,7 @@ const express = require('express');
 const path = require('path');
 const PORT = process.env.PORT || 5000
 // const postOffice = require('../CS313-Node/public/js/postal.js')
-const familyServices = require("./public/js/grounding").default;
+const familyServices = require("./public/js/grounding");
 let urlencodedParser = bodyParser.urlencoded({extended:true});
 
 const { Pool } = require('pg');
