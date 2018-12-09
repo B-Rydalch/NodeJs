@@ -17,9 +17,9 @@
   <!--My left nav bar -->
   <div id="mySidenav" class="sidenav">
       <h3>Children</h3>
-      <a ><% children.forEach(function(value) { %>
+      <% children.forEach(function(value) { %>
           <a onclick="getGrounding('<%= value.name %>')"><%= value.name %></a>
-        <% }) %> </a>
+        <% }) %>
     </div>
   <!--Google Chart Area-->
   <div id="chart_div"></div>
