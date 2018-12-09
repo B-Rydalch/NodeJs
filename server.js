@@ -26,4 +26,4 @@ express()
         })
   .get("/grounding",(req,res)=>familyServices.listChildren(req, res, pool))
   .get("/grounding/:name", (req, res) => familyServices.groundingInfo(req, res, pool))
-  .listen(PORT, () => console.log(`Listening on ${ PORT }`));
+  .listen(PORT, () => console.log(`Listening on ${ PORT }`))
