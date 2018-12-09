@@ -93,7 +93,7 @@ function groundingCountDB(req,res, pool, callback){
   });
 }
   
-module.exports = {
+export default {
   listChildren,
   groundingInfo
 }
